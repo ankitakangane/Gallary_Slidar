@@ -55,11 +55,10 @@
             "./images/1.jpg",
             "./images/2.jpg",
             "./images/3.jpg",
-            "./images/4.jpg",
-            "./images/5.jpg"
+            "./images/4.jpg"
         ];
         let imageIndex = 0;
-        
+        const imageElement = document.getElementById("img");
         function prev(){
             if(imageIndex ==0){
                 imageIndex = imageArray.length-1;
@@ -67,7 +66,6 @@
             else{
                 imageIndex --;
             }
-            const imageElement = document.getElementById('img');
             imageElement.src=imageArray[imageIndex];
         }
 
@@ -78,9 +76,10 @@
             else{
                 imageIndex++;
             }
-            const imageElement = document.getElementById("img");
+            
             imageElement.src=imageArray[imageIndex];
         }
+        setInterval(next,1000);
 
     </script>
 </body>
