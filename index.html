@@ -7,6 +7,7 @@
     <style>
         .gallary_heading{
             text-align: center;
+            font-size: xx-large;
         }
         .gallary_img{
             width:500px;
@@ -16,12 +17,71 @@
             margin:20px auto;
 
         }
+        .butn_container{
+            position: relative;
+            width: fit-content;
+            display: block;
+            margin: 10px auto;
+       }
+
+        .butn{
+            height: 40px;
+             background-color: white;
+            margin: 0 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            position: absolute;
+            top: 120px;
+        }
+       .butn-left{
+            left:-30px;
+        }
+        .butn-right{
+            right:-30px; 
+        }
+      
     </style>
 </head>
 <body>
     <h1 class="gallary_heading">Gallary Slidar</h1>
     <div class="butn_container">
-        <img src="./images/1.jpg.jpg" class="gallary_img"/>
+        <img src="./images/1.jpg" class="gallary_img" id="img"/>
+        <img src="./images/left.jpg" class="butn butn-left" onclick="prev()"/>
+        <img src="./images/right.jpg" class="butn butn-right" onclick="next()"/>
     </div>
+    <script>
+        const imageArray=[
+            "./images/0.jpg",
+            "./images/1.jpg",
+            "./images/2.jpg",
+            "./images/3.jpg",
+            "./images/4.jpg",
+            "./images/5.jpg"
+        ];
+        let imageIndex = 0;
+        
+        function prev(){
+            if(imageIndex ==0){
+                imageIndex = imageArray.length-1;
+            }
+            else{
+                imageIndex --;
+            }
+            const imageElement = document.getElementById('img');
+            imageElement.src=imageArray[imageIndex];
+        }
+
+        function next(){
+            if(imageIndex == imageArray.length-1){
+                imageIndex=0;
+            }
+            else{
+                imageIndex++;
+            }
+            const imageElement = document.getElementById("img");
+            imageElement.src=imageArray[imageIndex];
+        }
+
+    </script>
 </body>
 </html>
